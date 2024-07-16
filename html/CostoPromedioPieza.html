@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Costo Promedio Por Pieza</title>
+  
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+   <link rel="icon" type="img/png" href="../img/logoProduccion_circular.png">
+   <link rel="stylesheet" href="../css/index.css">
+   <link rel="stylesheet" href="../css/costopromedioPieza.css">
+</head>
+<body>
+   <header class="header">
+      <nav class="nav container">
+         <div class="nav__data">
+            <a href="../index.html" class="nav__logo">
+               <i class=""></i> PRODUCCION III
+            </a>
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line nav__burger"></i>
+               <i class="ri-close-line nav__close"></i>
+            </div>
+         </div>
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a href="../index.html" class="nav__link">Inicio</a></li>    
+               <li class="dropdown__item">
+                  <div class="nav__link">
+                              </a>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+                  </ul>
+               </li>
+               <li class="dropdown__item">
+                  <div class="nav__link">
+                  </div>
+                  <ul class="dropdown__menu">
+                     <li>
+                     <li>
+                     </li>
+                  </ul>
+               </li>
+
+            </ul>
+         </div>
+      </nav>
+
+   </header>
+   <main>
+      <div class="contenedor__p">
+         <h1 style="color: azure;" id="eqes">Costo Promedio Por Pieza</h1>
+         <form id="formularioCPP" method="post">
+            <section>
+               <input type="text" id="demanda" min="0" placeholder="Demanda semanal (d)" oninput="return soloNumeros(event);" required>
+            </section>
+
+            <section>
+               <input type="text" id="ciclo" min="1" placeholder="Ciclo de Revisión (T) en Semanas" oninput="return soloNumeros(event);" required>
+            </section>
+
+            <section>
+               <input type="text" id="seguridad" min="0" placeholder="Inventario de seguridad (SS)" oninput="return soloNumeros(event);" required>
+            </section>
+
+            <section>
+               <input type="text" id="n_semanas" min="0" placeholder="Semanas A Trabajar" oninput="return soloNumeros(event);" required>
+            </section>
+            <button type="submit" id="calculoCPP">Calcular</button>
+            <div id="resultado"></div>
+         </form>
+         <table>
+            <thead>
+               <tr>
+                  <th class="col-demanda">Demanda</th>
+                  <th class="col-ciclo">Ciclo</th>
+                  <th class="col-seguridad">Seguridad</th>
+                  <th class="col-inventario">Inventario Promedio</th>
+                  <th class="col-rotacion">Rotación Inventario</th>
+                  <th class="col-semanas">Numeros De Semanas</th>
+                  <th class="col-analisis">Análisis</th>
+                  <th class="col-acciones">Acciones</th>
+               </tr>
+            </thead>
+            <tbody id="registros">
+   
+            </tbody>
+        </table>
+      </div>
+   </main>
+
+
+   <script src="../js/main.js"></script>
+   <script src="../js/calculos_CPP.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

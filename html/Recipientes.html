@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCR</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" type="img/png" href="../img/logoProduccion_circular.png">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/dcr.css">
+</head>
+
+<body>
+   
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="../index.html" class="nav__logo">
+                    <i class=""></i> PRODUCCION III
+                </a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__burger"></i>
+                    <i class="ri-close-line nav__close"></i>
+                </div>
+            </div>
+
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="../index.html" class="nav__link">Inicio</a></li>
+
+                 
+                    <li class="dropdown__item">
+                        
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="../html/CMC.html" class="dropdown__link">
+                                    <i class="ri-pie-chart-line"></i> Mantenimiento Correctivo
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../html/EOQ.html" class="dropdown__link">
+                                    <i class="ri-arrow-up-down-line"></i> EOQ
+                                </a>
+                            </li>
+
+                        
+                            <li class="dropdown__subitem">
+                                <div class="dropdown__link">
+                                    <i class="ri-bar-chart-line"></i> Control de Inventario <i
+                                        class="ri-add-line dropdown__add"></i>
+                                </div>
+
+                                <ul class="dropdown__submenu">
+                                    <li>
+                                        <a href="../html/CFP.html" class="dropdown__sublink">
+                                            <i class="ri-refund-2-line"></i> Costo Fijo Por Pieza
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="../html/CPP.html" class="dropdown__sublink">
+                                            <i class="ri-refund-2-line"></i> Costo Promedio Por Pieza
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+        
+                    <li class="dropdown__item">
+                        
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="../html/MRP.html" class="dropdown__link">
+                                    <i class="ri-pie-chart-line"></i> Método MRP
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../html/LTC.html" class="dropdown__link">
+                                    <i class="ri-pie-chart-line"></i> LTC
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../html/LUC.html" class="dropdown__link">
+                                    <i class="ri-arrow-up-down-line"></i> LUC
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
+        
+                    <li class="dropdown__item">
+                        
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="../html/DCR.html" target="_blank" class="dropdown__link">
+                                    <i class="ri-pie-chart-line"></i> Recipiente
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="../html/KANBANES.html" target="_blank" class="dropdown__link">
+                                   <i class="ri-pie-chart-line"></i> Kanbanes
+                                </a>                          
+                            </li>
+                        </ul>
+                    </li>
+  
+                    <li class="dropdown__item">
+                       
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-user-line"></i> Profiles
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-lock-line"></i> Accounts
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-message-3-line"></i> Messages
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+    <main>
+        <div class="contendorDCR">
+            <h1 style="color: azure;" id="eq">RECIPIENTE</h1>
+            <form id="calculoForm">
+                <input type="hidden" id="DCR">
+                <input type="text" id="demand" name="demand" placeholder="Tasa de Demanda (D)" step="any" oninput="return soloNumeros(event);" required>
+                <select id="demandUnit">
+                    <option value="number">Número</option>
+                    <option value="percentage">Porcentaje</option>
+                    <option value="hours">Unidades/Horas</option>
+                    <option value="minutes">Minutos</option>
+                </select>
+                
+                <input type="text" id="turnaroundTime" name="turnaroundTime" placeholder="Tiempo de Vuelta de Recipiente (T)" step="any" oninput="return soloNumeros(event);" required>
+                <select id="turnaroundTimeUnit">
+                    <option value="number">Número</option>
+                    <option value="percentage">Porcentaje</option>
+                    <option value="hours">Unidades/Horas</option>
+                    <option value="minutes">Minutos</option>
+                </select>
+                
+                <input type="text" id="containerSize" name="containerSize" placeholder="Tamaño del Recipiente (C)" oninput="return soloNumeros(event);" required>
+                
+                <button type="button" id="saveButton"  onclick="saveRecord()">Agregar</button>
+            </form>
+
+            <div id="notification"></div>
+
+    
+        
+            <table id="recordsTable">
+                <thead>
+                    <tr>
+                        <th>Demanda</th>
+                        <th>Unidad de Demanda</th>
+                        <th>Tiempo de Vuelta</th>
+                        <th>Unidad de Tiempo de Vuelta</th>
+                        <th>Tamaño de Recipiente</th>
+                        <th>Cantidad de Recipientes</th>
+                        <th>Inventario Máximo</th>
+                        <th>Tarjetas Kanban</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
+    </main>
+ 
+   <script src="../js/calculos_DCR.js"></script>
+   <script src="../js/main.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</body>
+</html>

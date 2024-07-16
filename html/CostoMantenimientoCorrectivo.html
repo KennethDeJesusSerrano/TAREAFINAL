@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Costo De Mantenimiento Correctivo</title>
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+   <link rel="stylesheet" href="../css/index.css">
+   <link rel="stylesheet" href="../css/Mantenimientocorrectivo.css">
+</head>
+<body>
+   <header class="header">
+      <nav class="nav container">
+         <div class="nav__data">
+            <a href="../index.html" class="nav__logo">
+               <i class=""></i> PRODUCCION III
+            </a>
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line nav__burger"></i>
+               <i class="ri-close-line nav__close"></i>
+            </div>
+         </div>
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a href="../index.html" class="nav__link">Inicio</a></li>
+               <li class="dropdown__item">
+                  <div class="nav__link">
+                  
+                  </div>
+                  <ul class="dropdown__menu">
+                     <li>
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+               <li class="dropdown__item">
+                  <div class="nav__link">
+               
+                  </div>
+                  <ul class="dropdown__menu">
+                     <li>
+                        <a href="../html/DCR.html" target="_blank" class="dropdown__link">
+                           <i class="ri-pie-chart-line"></i> Recipiente
+                        </a>
+                     </li>
+                     <li>
+                        <a href="../html/KANBANES.html" target="_blank" class="dropdown__link">
+                           <i class="ri-pie-chart-line"></i> Kanbanes
+                        </a>                          
+                     </li>
+                  </ul>
+               </li>
+               <li class="dropdown__item">
+                  <div class="nav__link">
+                  </div>
+                  <ul class="dropdown__menu">
+                     <li>
+                        <a href="#" class="dropdown__link">
+                           <i class="ri-user-line"></i> Profiles
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" class="dropdown__link">
+                           <i class="ri-lock-line"></i> Accounts
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" class="dropdown__link">
+                           <i class="ri-message-3-line"></i> Messages
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+
+            </ul>
+         </div>
+      </nav>
+   </header>
+   <main>
+      <div class="contenedor__todo">
+         <h1 id="mc">Mantenimiento Correctivo</h1>
+         <form id="formulario" class="formulario__register" novalidate>
+            <section>
+               <input type="text" id="horas" placeholder="Horas Kilométradas" oninput="return soloNumeros(event);" required>
+            </section>
+            <section>
+               <label for="mtbf">MTBF:</label>
+               <select id="mtbf">
+                  <option value="hours">Horas</option>
+                  <option value="percentage">Porcentaje</option>
+               </select>
+            </section>
+            <section>
+               <input type="text" id="valorMtbf" placeholder="Valor de MTBF" oninput="return soloNumeros(event);" required>
+            </section>
+            <section>
+               <input type="text" id="duracion" placeholder="Duracion Tarea (Horas)" oninput="return soloNumeros(event);">
+            </section>
+            <section>
+               <input type="text" id="costoHora" placeholder="Costo Por Hora de Trabajo ($)" oninput="return soloNumeros(event);">
+            </section>
+            <section>
+               <input type="text" id="repuestos" placeholder="Respuestos ($)" oninput="return soloNumeros(event);">
+            </section>
+            <section>
+               <input type="text" id="costosOperacionales" placeholder="Costo de Tareas Operacionales ($)" oninput="return soloNumeros(event);">
+            </section>
+            <section>
+               <input type="text" id="retrasoLogistico" placeholder="Retraso Logístico ($)" oninput="return soloNumeros(event);">
+            </section>
+            <section>
+               <input type="text" id="costoUnitario" placeholder="Costo Unitario por Parada ($/hora)" oninput="return soloNumeros(event);">
+            </section>
+            <section>
+               <input type="text" id="costosFallas" placeholder="Costos de Falla de Vez Única ($)" oninput="return soloNumeros(event);">
+            </section>
+            <button id="calcularButton">Calcular</button>
+            <div id="resultado"></div>
+         </form>
+         <table id="crmTable">
+            <thead>
+               <tr>
+                  <th class="col-horas">Horas</th>
+                  <th class="col-mtbf">MTBF</th>
+                  <th class="col-valorMtbf">Valor MTBF</th>
+                  <th class="col-duracion">Duración</th>
+                  <th class="col-costoHora">Costo/Hora</th>
+                  <th class="col-repuestos">Repuestos</th>
+                  <th class="col-costosOperacionales">Costos Operacionales</th>
+                  <th class="col-retrasoLogistico">Retraso Logístico</th>
+                  <th class="col-costoUnitario">Costo Unitario</th>
+                  <th class="col-costosFallas">Costos Fallas</th>
+                  <th class="cmc1">MC</th>
+                  <th>Análisis</th>
+                  <th class="col-acciones">Acciones</th>
+               </tr>
+            </thead>
+            <tbody id="data-cmc">
+            </tbody>
+         </table>
+      </div>
+   </main>
+   <script src="../js/main.js"></script>
+   <script src="../js/calculos_mantenimientoCorrectivo.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

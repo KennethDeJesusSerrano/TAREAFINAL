@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Costo Fijo Por Pieza</title>
+
+   <!-- Enlace a los iconos Remix y hojas de estilo -->
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+   <link rel="stylesheet" href="../css/index.css">
+   <link rel="stylesheet" href="../css/costofijodePieza.css">
+</head>
+
+<body>
+   <!-- Encabezado de la página -->
+   <header class="header">
+      <nav class="nav container">
+         <div class="nav__data">
+            <!-- Logo con enlace a la página de inicio -->
+            <a href="../index.html" class="nav__logo">
+               <i class=""></i> PRODUCCION III
+            </a>
+
+            <!-- Botón de menú para dispositivos móviles -->
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line nav__burger"></i>
+               <i class="ri-close-line nav__close"></i>
+            </div>
+         </div>
+
+         <!-- Menú de navegación -->
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a href="../index.html" class="nav__link">Inicio</a></li>
+               <ul class="dropdown__submenu">
+                  <li></li>
+                  <li></li>
+               </ul>
+               <li class="dropdown__item">
+                  <div class="nav__link"></div>
+                  <li><a href="#" class="dropdown__link"></a></li>
+               </li>
+            </ul>
+         </div>
+      </nav>
+   </header>
+
+   <!-- Contenido principal de la página -->
+   <main>
+      <div class="contenedor_Main">
+         <!-- Título de la página -->
+         <h1 style="color: azure;" id="cpf">Costo Fijo Por Pieza</h1> 
+         <!-- Formulario para calcular el costo fijo por pieza -->
+         <form id="costForm" method="POST">
+            <input type="hidden" id="recordId">
+            <section>
+               <input type="text" id="demand" placeholder="Demanda" oninput="return soloNumeros(event);">
+            <section>
+            <!-- Selección del método de pedido -->
+            <section>
+               <label for="orderMethod">Método de Pedido:</label>
+               <select id="orderMethod">
+                  <option value="percentage">Porcentaje de Demanda</option>
+                  <option value="quantity">Cantidad Fija</option>
+               </select>
+            </section>
+            <!-- Campo para la cantidad de pedido -->
+            <section>
+               <input type="text" id="orderQuantity" placeholder="Cantidad de Pedido" oninput="return soloNumeros(event);">
+            </section>
+            <!-- Campo para el stock de seguridad -->
+            <section>
+               <input type="text" id="safetyStock" placeholder="Stock de Seguridad" oninput="return soloNumeros(event);">
+            </section>
+            <!-- Campo para el número de semanas a trabajar -->
+            <section>
+               <input type="text" id="n_semanas" min="0" placeholder="Semanas A Trabajar" oninput="return soloNumeros(event);" required>
+            </section>
+            <!-- Botón para enviar el formulario -->
+            <button type="submit">Calcular</button>
+         </form>
+         <!-- Tabla para mostrar los registros calculados -->
+         <table id="recordsTable">
+            <thead>
+               <tr>
+                  <th class="col-demandas">Demanda</th>
+                  <th class="col-metodoPedido">Método Pedido</th>
+                  <th class="col-cantidadPedido">Cantidad Pedido</th>
+                  <th class="col-stockSeguridad">Stock Seguridad</th>
+                  <th class="col-semanas">Numeros De Semanas</th>
+                  <th class="col-resultado">Resultado</th>
+                  <th class="col-acciones">Acciones</th>
+               </tr>
+            </thead>
+            <tbody id="recordsBody">
+               <!-- Aquí se agregarán los registros dinámicamente -->
+            </tbody>
+         </table>
+      </div>
+   </main>
+   <!-- Enlace a los archivos JavaScript -->
+   <script src="../js/main.js"></script>
+   <script src="../js/calculos_CFP.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <!-- Enlace a los iconos Ionicons -->
+   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

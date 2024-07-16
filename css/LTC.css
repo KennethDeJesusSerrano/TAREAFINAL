@@ -1,0 +1,192 @@
+/* Contenedor principal */
+.containerLTC {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
+
+/* Encabezado */
+h1 {
+    text-align: center;
+    font-size: 32px; /* Tamaño de fuente más grande */
+    color: #4a4a4a; /* Color del texto gris oscuro */
+    background-color: #ffffff; /* Fondo oscuro */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Inputs del formulario */
+form input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ced4da; /* Borde gris claro */
+    border-radius: 6px; /* Bordes más redondeados */
+    box-sizing: border-box;
+    background: #ffffff; /* Fondo blanco */
+    color: #4a4a4a; /* Color del texto gris oscuro */
+}
+
+/* Botones del formulario */
+.containerLTC button, form button {
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    font-size: 16px; /* Tamaño de fuente más grande */
+    background: #006400; /* Fondo verde oscuro */
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    border-radius: 6px; /* Bordes más redondeados */
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+table, th, td {
+    border: 1px solid #d8d1d1; /* Borde gris claro */
+    text-align: center;
+    padding: 10px; /* Añadido padding */
+}
+
+th {
+    background-color: #006400; /* Fondo verde oscuro */
+    color: white;
+    padding: 12px; /* Añadido padding */
+}
+
+/* Cuerpo de datos */
+#resultadoLTC {
+    background-color: #d3d3d3; /* Fondo gris claro */
+}
+
+/* Texto específico */
+#eq {
+    font-size: 30px;
+    text-align: center;
+    margin-top: -5px;
+    color: #4a4a4a; /* Color del texto gris oscuro */
+}
+
+/* Notificación de error */
+.highlight {
+    background-color: #cc0000; /* Rojo oscuro */
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .contenedor__p {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    table, th, td {
+        font-size: 14px;
+    }
+
+    .col-analisis {
+        width: 140px;
+    }
+}
+
+@media (max-width: 992px) {
+    .contenedor__p {
+        padding: 10px;
+    }
+
+    table, th, td {
+        font-size: 12px;
+    }
+
+    .col-analisis {
+        width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor__p {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    form input {
+        width: calc(100% - 10px);
+    }
+
+    form button {
+        font-size: 12px;
+    }
+
+    table, th, td {
+        font-size: 12px;
+    }
+
+    .col-demandas, .col-metodoPedido, .col-cantidadPedido, .col-stockSeguridad, .col-resultado, .col-acciones {
+        width: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .contenedor__p {
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    form input {
+        width: calc(100% - 8px);
+    }
+
+    form button {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+
+    table, th, td {
+        font-size: 10px;
+    }
+
+    .col-demandas, .col-metodoPedido, .col-cantidadPedido, .col-stockSeguridad, .col-resultado, .col-acciones {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor__p {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    form input {
+        width: calc(100% - 6px);
+    }
+
+    form button {
+        font-size: 8px;
+        padding: 4px 6px;
+    }
+
+    table, th, td {
+        font-size: 8px;
+    }
+
+    .col-demandas, .col-metodoPedido, .col-cantidadPedido, .col-stockSeguridad, .col-resultado, .col-acciones {
+        width: 100%;
+    }
+}

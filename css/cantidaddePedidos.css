@@ -1,0 +1,153 @@
+#resultadosTabla {
+    color: #4a4a4a; /* Color del texto gris oscuro */
+    text-align: left; /* Alineación del texto a la izquierda */
+}
+
+.tabla_resultados:hover {
+    text-align: left; /* Alineación del texto a la izquierda */
+    background-color: #f7f7f7; /* Fondo gris más claro */
+    color: #0077cc; /* Color del texto azul */
+}
+
+main {
+    width: 90%; /* Cambiado el ancho */
+    padding: 30px; /* Cambiado el padding */
+    margin: auto;
+    margin-top: 70px; /* Cambiado el margen superior */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Sombra */
+}
+
+.contenedor__todo {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto; /* Cambiado el margen */
+    position: relative;
+}
+
+.contenedor__login-register {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    position: relative;
+    top: -120px; /* Cambiado el valor de top */
+    left: 15px; /* Cambiado el valor de left */
+}
+
+.contenedor__login-register form {
+    width: 100%;
+    padding: 70px 25px; /* Cambiado el padding */
+    background: #ffffff; /* Fondo blanco */
+    position: absolute;
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Sombra */
+}
+
+.contenedor__login-register #eq {
+    font-size: 28px; /* Cambiado el tamaño de la fuente */
+    text-align: center;
+    margin-top: -35px; /* Cambiado el margen superior */
+    color: #4a4a4a; /* Color del texto gris oscuro */
+}
+
+.contenedor__login-register form input {
+    width: calc(100% - 20px);
+    margin-top: 15px; /* Cambiado el margen superior */
+    padding: 12px;
+    border: 1px solid #ced4da; /* Borde gris claro */
+    background: #ffffff; /* Fondo blanco */
+    font-size: 18px; /* Tamaño de fuente */
+    outline: none;
+    border-radius: 6px; /* Bordes redondeados */
+    color: #4a4a4a; /* Color del texto gris oscuro */
+}
+
+.contenedor__login-register form button {
+    padding: 12px 45px; /* Cambiado el padding */
+    margin-top: 25px; /* Cambiado el margen superior */
+    border: none;
+    font-size: 16px; /* Tamaño de fuente */
+    background: #006400; /* Fondo verde oscuro */
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    border-radius: 6px; /* Bordes redondeados */
+}
+
+.formulario__register {
+    opacity: 1;
+    display: block;
+}
+
+#resultado {
+    margin-top: 15px; /* Cambiado el margen superior */
+    font-weight: bold;
+    text-align: justify;
+    background-color: #f2f2f2; /* Fondo gris claro */
+    padding: 10px; /* Padding */
+    border-radius: 6px; /* Bordes redondeados */
+    color: #4a4a4a; /* Color del texto gris oscuro */
+}
+
+#resultadosTabla td:hover {
+    background-color: #cccccc; /* Fondo gris medio */
+}
+
+#resultadosTabla .seleccionada {
+    background-color: #ffcc00; /* Fondo amarillo */
+}
+
+.highlight {
+    background-color: #cc0000; /* Fondo rojo oscuro */
+}
+
+#warningPanel {
+    display: none;
+    color: white; /* Color del texto blanco */
+    background-color: #ff0000; /* Fondo rojo */
+    border: 1px solid #000000; /* Borde negro */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px; /* Bordes redondeados */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor__todo {
+        max-width: 95%;
+        margin: 220px auto; /* Cambiado el margen */
+    }
+
+    .contenedor__login-register {
+        max-width: 95%;
+        top: -80px; /* Cambiado el valor de top */
+        left: 5px; /* Cambiado el valor de left */
+    }
+
+    .contenedor__login-register form {
+        padding: 60px 20px; /* Cambiado el padding */
+        border-radius: 12px;
+    }
+
+    .contenedor__login-register #eq {
+        font-size: 22px;
+        margin-top: -25px; /* Cambiado el margen superior */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contenedor__login-register form {
+        padding: 40px 15px; /* Cambiado el padding */
+    }
+
+    .contenedor__login-register #eq {
+        font-size: 18px;
+        margin-top: -15px; /* Cambiado el margen superior */
+    }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Cantidad Económica de Pedidos</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+ 
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+   
+   <link rel="stylesheet" href="../css/index.css">
+   <link rel="stylesheet" href="../css/eoq.css">
+</head>
+
+<body>
+
+   <header class="header">
+      <nav class="nav container">
+         <div class="nav__data">
+            <a href="../index.html" class="nav__logo">
+               <i class=""></i> PRODUCCION III
+            </a>
+
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line nav__burger"></i>
+               <i class="ri-close-line nav__close"></i>
+            </div>
+         </div>
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a href="../index.html" class="nav__link">Inicio</a></li>
+               <li class="dropdown__item">
+                  <ul class="dropdown__menu">
+                     <li>
+                        <a href="../html/CMC.html" class="dropdown__link">
+                           <i class="ri-pie-chart-line"></i> Mantenimiento Correctivo
+                        </a>
+                     </li>
+                     <li>
+                        <a href="../html/EOQ.html" class="dropdown__link">
+                           <i class="ri-arrow-up-down-line"></i> EOQ
+                        </a>
+                     </li>
+
+                 
+                     <li class="dropdown__subitem">
+                        <div class="dropdown__link">
+                           <i class="ri-bar-chart-line"></i> Control de Inventario <i
+                              class="ri-add-line dropdown__add"></i>
+                        </div>
+
+                        <ul class="dropdown__submenu">
+                           <li>
+                              <a href="../html/CFP.html" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i> Costo Fijo Por Pieza
+                              </a>
+                           </li>
+
+                           <li>
+                              <a href="../html/CPP.html" class="dropdown__sublink">
+                                 <i class="ri-refund-2-line"></i> Costo Promedio Por Pieza
+                              </a>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li class="dropdown__item">
+                  <ul class="dropdown__menu">
+                     <li>
+                        <a href="../html/MRP.html" class="dropdown__link">
+                           <i class="ri-pie-chart-line"></i> Método MRP
+                        </a>
+                     </li>
+                     <li>
+                        <a href="../html/LTC.html" class="dropdown__link">
+                           <i class="ri-pie-chart-line"></i> LTC
+                        </a>
+                     </li>
+                     <li>
+                        <a href="../html/LUC.html" class="dropdown__link">
+                           <i class="ri-arrow-up-down-line"></i> LUC
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+               <li class="dropdown__item">
+                  <ul class="dropdown__menu">
+                     <li>
+                        <a href="../html/DCR.html" target="_blank" class="dropdown__link">
+                           <i class="ri-pie-chart-line"></i> Recipiente
+                        </a>
+                     </li>
+                     <li>
+                        <a href="../html/KANBANES.html" target="_blank" class="dropdown__link">
+                           <i class="ri-pie-chart-line"></i> Kanbanes
+                        </a>                          
+                     </li>
+                  </ul>
+               </li>
+               <li class="dropdown__item">
+                  <ul class="dropdown__menu">
+                     <li>
+                        <a href="#" class="dropdown__link">
+                           <i class="ri-user-line"></i> Profiles
+                        </a>
+                     </li>
+
+                     <li>
+                        <a href="#" class="dropdown__link">
+                           <i class="ri-lock-line"></i> Accounts
+                        </a>
+                     </li>
+
+                     <li>
+                        <a href="#" class="dropdown__link">
+                           <i class="ri-message-3-line"></i> Messages
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+
+            </ul>
+         </div>
+      </nav>
+
+   </header>
+
+   <main>
+      <div class="containere">
+         <h1 id="eq">EOQ</h1>
+         <form id="crud-form" method="POST">
+            <section>
+               <input type="text" id="demand" placeholder="Demanda" oninput="return soloNumeros(event);">
+            </section>
+
+            <section>
+               <input type="text" id="order-cost" placeholder="Costo de Orden" oninput="return soloNumeros(event);">
+            </section>
+
+            <section>
+               <input type="text" id="holding-cost" placeholder="Costo de Mantenimiento"
+                  oninput="return soloNumeros(event);">
+            </section>
+
+            <button type="submit">Agregar</button>
+            <button id="download-pdf">Descargar PDF</button>
+         </form>
+         <table id="data-table">
+            <thead>
+               <tr>
+                  <th class="demand">Demanda</th>
+                  <th>Costo de Orden</th>
+                  <th>Costo de Mantenimiento</th>
+                  <th class="eoq">EOQ</th>
+                  <th>Análisis</th>
+                  <th>Acciones</th>
+               </tr>
+            </thead>
+            <tbody id="data-body">
+             
+            </tbody>
+         </table>
+   </main>
+
+
+  
+   <script src="../js/calculos_EOQ.js"></script>
+   <script src="../js/main.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+</body>
+
+</html>
